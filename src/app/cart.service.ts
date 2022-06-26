@@ -1,31 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product } from './products';
+import { CartProduct } from './products';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  items: Product[] = [];
+  items: CartProduct[] = [];
+  total: number = 0;
   constructor(private http: HttpClient) {}
   getItem(id: number) {
     return this.items.find((x) => x.id === id);
   }
   deleteItemById(id: number) {
     this.items = this.items.filter((x) => x.id !== id);
+    this.getTotal();
+    return this.items
   }
-  deleteItem(item: Product) {
+  deleteItem(item: CartProduct) {
     this.items = this.items.filter((x) => x !== item);
+    this.getTotal();
+    return this.items
   }
-  addToCart(product: Product) {
+  addToCart(product: CartProduct) {
     let prod = this.getItem(product.id)
     if(prod){
-      //prod ADD QTY
+      prod.quantity += 1
       return
     }
-    this.items.push(product);
-  }
 
+    product.quantity = 1
+    this.items.push(product);
+    this.getTotal();
+  }
+  getTotal(){
+    this.total = 0;
+    this.items.forEach(element => {
+      this.total += element.price * element.quantity
+    });
+    return this.total
+  }
   getItems() {
     return this.items;
   }

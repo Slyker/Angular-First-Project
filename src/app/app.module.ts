@@ -21,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -43,6 +44,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatCardModule,
     MatDividerModule,
     MatBadgeModule,
+    MatSnackBarModule
+    
+
   ],
   declarations: [
     AppComponent,

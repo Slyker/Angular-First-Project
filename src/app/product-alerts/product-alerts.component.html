@@ -1,11 +1,19 @@
 <div *ngIf="product">
-  <p>
+  <span *ngIf="product.stock > 0; else elseBlock">
+    <button mat-raised-button style="margin-right:5px;" (click)="addToCart(product)">Add to cart</button>
+  </span>
+  <ng-template #elseBlock style="color:red;">
+    <p style="color:red;">
+      This product is out of stock
+    </p>   
+  </ng-template>
+
+  <span>
     <span *ngIf="product.price > 700" style="margin-right:5px;">
       <button mat-raised-button class="button sm" (click)="priceAlert.emit(product?.id)">Notify Me</button>    
     </span>
-    <button  mat-raised-button (click)="shared.emit(product?.id)">Share</button>
-  </p>
 
-
+    <button  mat-raised-button (click)="shared.emit(product?.id)" >Share</button>
+  </span>
 </div>
 

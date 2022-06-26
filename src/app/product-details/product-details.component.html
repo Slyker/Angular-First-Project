@@ -4,8 +4,8 @@
     <h3>{{ product.name }}</h3>
     <mat-divider></mat-divider>
     
-    <div *ngIf="product.promo && product.promo > 0; else elseBlock" style="text-align: center;">
-      <h4>{{ product.price * (1-product.promo/100) | currency }}   <span style="font-size: 13px;"><span style="text-decoration-line: line-through;"> {{ product.price | currency }}</span> -{{product.promo}}%</span></h4>
+    <div *ngIf="product.promo && product.promo > 0; else elseBlock" >
+      <h4>Price : {{ product.promoPrice | currency }}   <span style="font-size: 12px;"><span style="text-decoration-line: line-through;"> {{ product.price | currency }}</span> -{{product.promo}}%</span></h4>
       
     </div>
     <ng-template #elseBlock>

@@ -5,9 +5,10 @@ export interface Product {
   description: string;
   stock: number;
   lowStock?: number;
+  promoPrice?:number;
   promo?: number;
 }
-export interface CartProduct {
+export interface CartProduct extends Product {
   quantity: number;
 }
 
@@ -35,6 +36,12 @@ export const products = [
     stock: 0,
   },
 ];
+products.forEach(element  => {
+  let el = element as Product
+  if(el.promo ){
+    el.promoPrice = el.price * (1-el.promo/100)
+  }
+});
 
 /*
 Copyright Google LLC. All Rights Reserved.

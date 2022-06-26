@@ -6,5 +6,29 @@
 
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
+  <span>{{ item.promoPrice || item.price | currency }}</span>
+  <span **ngIf="!item.promoPrice;else promoPrice">
+    {{  (item.quantity * item.price)  | currency }}
+  </span>   
+  <ng-template #promoPrice>
+   <span> {{  (item.quantity * item.price )  | currency }}</span>
+  </ng-template>
+  <span>
+
+  <button mat-mini-fab style="margin-right: 10px;" (click)="productQuantity(item.id,(item.quantity == item.stock)? item.quantity:item.quantity+1)" color="primary" aria-label="Add quantity">
+    <mat-icon>add</mat-icon>
+  </button>
+  <span>x{{item.quantity}}</span>
+  <button style="margin-left: 10px;" (click)="productQuantity(item.id,(item.quantity == 0)? 0:item.quantity-1)" mat-mini-fab color="primary" aria-label="Remove quantity">
+    <mat-icon>remove</mat-icon>
+  </button>
+
+
+  <button (click)="deleteProduct(item.id)" style="margin-left: 10px;" mat-mini-fab color="primary" aria-label="Delete product">
+    <mat-icon>delete</mat-icon>
+  </button>
+</span>
+</div>
+<div class="cart-item" >
+  <span>Total : {{total | currency}}</span>
 </div>
