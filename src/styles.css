@@ -8,9 +8,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-}
 
 .container {
   display: flex;
@@ -70,9 +67,8 @@ label {
   text-transform: uppercase;
 }
 
-/* Button */
-.button,
-button {
+/* Button 
+.button {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
@@ -96,7 +92,6 @@ button:disabled {
   cursor: auto;
 }
 
-/* Fancy Button */
 .button.sm {
   font-size: 11;
 }
@@ -108,25 +103,9 @@ button:disabled {
 .fancy-button i.material-icons {
   color: #1976d2;
   padding-right: 4px;
-}
+}*/
 
-/* Top Bar */
 
-app-top-bar {
-  width: 100%;
-  height: 68px;
-  background-color: #1976d2;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-app-top-bar h1 {
-  color: white;
-  margin: 0;
-}
 
 /* Checkout Cart, Shipping Prices */
 
@@ -134,7 +113,7 @@ app-top-bar h1 {
 .shipping-item {
   width: 100%;
   min-width: 400px;
-  max-width: 450px;
+  max-width: 900px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -144,12 +123,16 @@ app-top-bar h1 {
   background-color: #eeeeee;
 }
 
-.buttonBar  {
-  display: flex;
-}
-
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license
 */
+/* Material Design   */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Toolbar */
+.example-spacer {
+  flex: 1 1 auto;
+}
