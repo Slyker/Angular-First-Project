@@ -1,3 +1,11 @@
-<p *ngIf="product && product.price > 700">
-  <button type="button" class="button sm" (click)="notify.emit()">Notify Me</button>
-</p>
+<div *ngIf="product">
+  <p>
+    <span *ngIf="product.price > 700" style="margin-right:5px;">
+      <button mat-raised-button class="button sm" (click)="priceAlert.emit(product?.id)">Notify Me</button>    
+    </span>
+    <button  mat-raised-button (click)="shared.emit(product?.id)">Share</button>
+  </p>
+
+
+</div>
+

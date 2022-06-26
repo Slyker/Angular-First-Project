@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  inStock: number;
+  stock: number;
   lowStock?: number;
   promo?: number;
 }
@@ -17,21 +17,22 @@ export const products = [
     name: 'Phone XL',
     price: 799,
     description: 'A large phone with one of the best screens',
-    inStock: 150,
+    stock: 150,
+    promo:10,
   },
   {
     id: 2,
     name: 'Phone Mini',
     price: 699,
     description: 'A great phone with one of the best cameras',
-    inStock: 50,
+    stock: 50,
   },
   {
     id: 3,
     name: 'Phone Standard',
     price: 299,
     description: "A basic phone don't know why buy this one",
-    inStock: 0,
+    stock: 0,
   },
 ];
 

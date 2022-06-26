@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { Product, products } from '../products';
+import { CartService } from '../cart.service';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
-export class TopBarComponent {
 
+export class TopBarComponent {
+  constructor(
+    private cartService: CartService
+  ) {}
+getCartLength(){
+  return this.cartService.getItems().length
+}
 }
 
 

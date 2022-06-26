@@ -1,8 +1,31 @@
 <h2>Product Details</h2>
+<mat-card>
+  <div *ngIf="product">
+    <h3>{{ product.name }}</h3>
+    <mat-divider></mat-divider>
+    
+    <div *ngIf="product.promo && product.promo > 0; else elseBlock" style="text-align: center;">
+      <h4>{{ product.price * (1-product.promo/100) | currency }}   <span style="font-size: 13px;"><span style="text-decoration-line: line-through;"> {{ product.price | currency }}</span> -{{product.promo}}%</span></h4>
+      
+    </div>
+    <ng-template #elseBlock>
+      <h4>{{ product.price | currency }}</h4> 
+    </ng-template>
 
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
-  <button type="button" (click)="addToCart(product)">Buy</button>
-</div>
+
+    <p>{{ product.description }}</p>
+  
+
+
+    <div *ngIf="product.stock > 0; else elseBlock" style="text-align: center;">
+        <button mat-raised-button type="button" (click)="addToCart(product)">Add to cart</button>
+    </div>
+    <ng-template #elseBlock style="color:red;">
+      <p style="color:red;">
+        This product is out of stock
+      </p>   
+    </ng-template>
+  </div>
+</mat-card>
+
+

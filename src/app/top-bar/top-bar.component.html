@@ -1,10 +1,25 @@
-<a [routerLink]="['/']">
-  <h1>My Store</h1>
-</a>
 
-<a routerLink="/cart" class="button fancy-button">
-  <i class="material-icons">shopping_cart</i>Checkout
-</a>
+<mat-toolbar>
+  <button style="margin-right: 10px;" mat-icon-button aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>
+    <a [routerLink]="['/']">
+      <h1>My Store</h1>
+    </a>
+  </span>
+  <span class="example-spacer"></span>
+  <span>
+    <button mat-button routerLink="/cart"  matBadge={{getCartLength()}} matBadgeColor="primary">
+      <i class="material-icons">shopping_cart</i>Checkout
+    </button>
+  </span>
+
+</mat-toolbar>
+
+
+
+
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

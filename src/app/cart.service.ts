@@ -18,6 +18,11 @@ export class CartService {
     this.items = this.items.filter((x) => x !== item);
   }
   addToCart(product: Product) {
+    let prod = this.getItem(product.id)
+    if(prod){
+      //prod ADD QTY
+      return
+    }
     this.items.push(product);
   }
 

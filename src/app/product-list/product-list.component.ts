@@ -10,13 +10,14 @@ import { products } from '../products';
 export class ProductListComponent {
   products = products;
 
-  refreshUI() {}
 
-  share() {
-    window.alert('The product has been shared!');
+  onShared(id:number) {
+    let product = products.find(x=>x.id === id)
+    window.alert(`You shared product : ${product?.name}`);
   }
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
+  onNotify(id:number) {
+    let product = products.find(x=>x.id === id)
+    window.alert(`You will be notified when ${product?.name} goes on sale`);
   }
 }
 
