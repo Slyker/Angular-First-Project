@@ -10,7 +10,7 @@
 
 .container {
   margin: auto;
-  width: 80%;
+  width: 90%;
   padding: 10px;
   height: auto;
 }
@@ -82,6 +82,7 @@ label {
   border-radius: 2px;
   background-color: #eeeeee;
 }
+
 .cart-item.cart-total{
   margin-top: 2px;
 }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
-import { products } from '../products';
+import { products, Product, CartProduct } from '../products';
+import { CartService } from '../cart.service';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-list',
@@ -9,15 +12,27 @@ import { products } from '../products';
 })
 export class ProductListComponent {
   products = products;
-
-
+  constructor(private cartService:CartService,private _snackBar: MatSnackBar){}
+  openSnackBar(message: string, action: string, params:object) {
+    this._snackBar.open(message, action,params);
+  }
+  onAddToCart(product: Product) {
+    this.cartService.addToCart(product as CartProduct);
+    this.openSnackBar(`${product.name} added to cart`, "Dismiss",{
+      duration: 2000
+    })
+  }
   onShared(id:number) {
     let product = products.find(x=>x.id === id)
-    window.alert(`You shared product : ${product?.name}`);
+    this.openSnackBar(`You shared product : ${product?.name}`, "Dismiss",{
+      duration: 2000
+    })
   }
   onNotify(id:number) {
     let product = products.find(x=>x.id === id)
-    window.alert(`You will be notified when ${product?.name} goes on sale`);
+    this.openSnackBar(`You will be notified when ${product?.name} goes on sale`, "Dismiss",{
+      duration: 2000
+    })
   }
 }
 

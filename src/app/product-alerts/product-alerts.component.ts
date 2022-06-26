@@ -11,14 +11,11 @@ export class ProductAlertsComponent {
   @Input() product: Product | undefined;
   @Output() shared = new EventEmitter();
   @Output() priceAlert = new EventEmitter();
+  @Output() addToCart = new EventEmitter();
 
-  constructor(private cartService: CartService,private _snackBar: MatSnackBar) {}
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
-  }
-  addToCart(product: Product) {
-    this.cartService.addToCart(product as CartProduct);
-    this.openSnackBar(`${product.name} added to cart`, "Dismiss")
-  }
+
+  constructor(private cartService: CartService) {}
+
+
   ngOnInit() {}
 }

@@ -13,8 +13,8 @@
   <ng-template #promoPrice>
    <span> {{  (item.quantity * item.price )  | currency }}</span>
   </ng-template>
+<br>
   <span>
-
   <button mat-mini-fab style="margin-right: 10px;" (click)="productQuantity(item.id,(item.quantity == item.stock)? item.quantity:item.quantity+1)" color="primary" aria-label="Add quantity">
     <mat-icon>add</mat-icon>
   </button>

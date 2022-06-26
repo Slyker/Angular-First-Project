@@ -35,6 +35,13 @@ export const products = [
     description: "A basic phone don't know why buy this one",
     stock: 0,
   },
+  {
+    id: 4,
+    name: 'No named phone aka chinese bruh',
+    price: 50,
+    description: "A test phone something simple that works, but be aware of chinese's governement",
+    stock: 1,
+  },
 ];
 products.forEach(element  => {
   let el = element as Product

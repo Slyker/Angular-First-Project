@@ -1,6 +1,6 @@
 <div *ngIf="product">
   <span *ngIf="product.stock > 0; else elseBlock">
-    <button mat-raised-button style="margin-right:5px;" (click)="addToCart(product)">Add to cart</button>
+    <button mat-raised-button style="margin-right:5px;" (click)="addToCart.emit(product)">Add to cart</button>
   </span>
   <ng-template #elseBlock style="color:red;">
     <p style="color:red;">
