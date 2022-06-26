@@ -68,59 +68,22 @@ label {
   text-transform: uppercase;
 }
 
-/* Button 
-.button {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  border-radius: 2px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-}
-
-.button:hover,
-button:hover {
-  opacity: 0.8;
-  font-weight: normal;
-}
-
-.button:disabled,
-button:disabled {
-  opacity: 0.5;
-  cursor: auto;
-}
-
-.button.sm {
-  font-size: 11;
-}
-.fancy-button {
-  background-color: white;
-  color: #1976d2;
-}
-
-.fancy-button i.material-icons {
-  color: #1976d2;
-  padding-right: 4px;
-}*/
-
-
-
 /* Checkout Cart, Shipping Prices */
 
 .cart-item,
 .shipping-item {
   width: 100%;
-  min-width: 400px;
+  min-width: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 16px 32px;
-  margin-bottom: 8px;
+  margin-top: 5px;
   border-radius: 2px;
   background-color: #eeeeee;
+}
+.cart-item.cart-total{
+  margin-top: 2px;
 }
 
 /*
