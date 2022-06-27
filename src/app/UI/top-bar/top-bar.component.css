@@ -1,0 +1,10 @@
+.sideNav-menu{
+    padding-top: 10px;
+    min-width: 200px;
+    text-align: center;
+    max-width: 100%;
+}
+.sideNav-content{
+    height: 93vh;
+    max-width: 100%;
+}

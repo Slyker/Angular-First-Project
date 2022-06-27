@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from './UI/top-bar/top-bar.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
 import { ProductAlertsComponent } from './shop/product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
@@ -25,8 +25,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTableModule} from "@angular/material/table"
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BackButtonDirective } from './directives/back/backButton.directive';
-
-
+import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatCheckboxModule} from '@angular/material/checkbox'
 @NgModule({
   imports: [
     BrowserModule,
@@ -48,7 +48,9 @@ import { BackButtonDirective } from './directives/back/backButton.directive';
     MatBadgeModule,
     MatSnackBarModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatCheckboxModule
     
 
   ],

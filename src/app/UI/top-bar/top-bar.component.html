@@ -1,0 +1,37 @@
+
+<mat-toolbar>
+  <button style="margin-right: 10px;" mat-icon-button aria-label="Menu toogler" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>
+    <a [routerLink]="['/']">
+      <h1>My Store</h1>
+    </a>
+  </span>
+  <span class="example-spacer"></span>
+  <span>
+    <button mat-button routerLink="/cart"  matBadge={{getCartLength()}} matBadgeColor="primary">
+      <i class="material-icons">shopping_cart</i>Checkout
+    </button>
+  </span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sideNav-content">
+  <mat-sidenav class="sideNav-menu" #sidenav mode="side" [(opened)]="opened">
+    <a (click)="sidenav.close()" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <ng-content  ></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
