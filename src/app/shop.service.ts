@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class ShopService {
   
   constructor(private http: HttpClient) {}
-  getProducts() {  
-    return this.http.get<Product[]>('/assets/products.json');
+  getProducts(categorie:string = "phones") {  
+
+    return this.http.get<Product[]>("/assets/products/" + categorie +".json");
   }
 }
