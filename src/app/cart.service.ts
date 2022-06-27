@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CartProduct, products } from './products';
+import { CartProduct, Product, products } from './products';
 
 @Injectable({
   providedIn: 'root',
@@ -22,28 +22,37 @@ export class CartService {
     this.getTotal();
     return this.items
   }
+  getProductTotals(product:CartProduct){
+    if(!product.total){
+      product.quantity = 1
+    }
+    product.total = product.quantity * product.price
+    if(product.promo){
+      product.promoPrice = product.price * (1-product.promo/100)
+      product.total = product.quantity * product.promoPrice
+    }
+   return product.total
+  }
   addToCart(product: CartProduct) {
     let prod = this.getItem(product.id)
     if(prod){
       prod.quantity += 1
       return
     }
+    this.getProductTotals(product);
 
-    product.quantity = 1
     this.items.push(product);
     this.getTotal();
   }
-  getTotal(){
-    this.total = 0;
-    this.items.forEach(element => {
-      this.total += element.price * element.quantity
-    });
+  getTotal(){  
+    this.total = this.items.map(t => t.total).reduce((acc, value) => acc + value, 0);;
     return this.total
   }
+
   getItems() {
-    if(this.items.length===0){
+    if(this.items.length===-1){
       let testToDELETE = products[products.length-1] as CartProduct
-      testToDELETE.quantity = 1   
+      this.getProductTotals(testToDELETE);
       this.items.push(testToDELETE)
     }
 

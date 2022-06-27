@@ -10,6 +10,8 @@ export interface Product {
 }
 export interface CartProduct extends Product {
   quantity: number;
+  total:number;
+  totalPromo?:number;
 }
 
 export const products = [
@@ -38,7 +40,7 @@ export const products = [
   {
     id: 4,
     name: 'No named phone aka chinese bruh',
-    price: 50,
+    price: 500,
     description: "A test phone something simple that works, but be aware of chinese's governement",
     stock: 1,
   },

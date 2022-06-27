@@ -1,8 +1,61 @@
-<h3>Cart</h3>
-
-<p>
+<h1>
+  Cart
+</h1>
+<h2>
   <a routerLink="/shipping">Shipping Prices</a>
-</p>
+</h2>
+
+<table mat-table [dataSource]="items" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    
+  </ng-container>       
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <td mat-footer-cell *matFooterCellDef> Total </td>
+
+  </ng-container>
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element">
+      
+    <div *ngIf="element.promo && element.promo > 0; else elseBlock" >
+      {{ element.promoPrice | currency }}   <span style="font-size: 13px;"> <br> <strong>-{{element.promo}}%</strong><span style="text-decoration-line: line-through;"> {{ element.price | currency }}</span></span>
+      
+    </div>
+    <ng-template #elseBlock>
+       {{element.price | currency}}  
+    </ng-template>
+      
+      </td>
+    <td mat-footer-cell *matFooterCellDef>  </td>
+  </ng-container>
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    <td mat-footer-cell *matFooterCellDef>  </td>
+  </ng-container>
+  <!-- Total Column -->
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef> Total </th>
+    <td mat-cell *matCellDef="let element"> {{element.total | currency}} </td>
+    <td mat-footer-cell *matFooterCellDef>{{getTotalCost() | currency}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name','price','quantity','total']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name','price','quantity','total'];"></tr>
+  <tr mat-footer-row *matFooterRowDef="['name','price','quantity','total']"></tr>
+</table>
 
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
