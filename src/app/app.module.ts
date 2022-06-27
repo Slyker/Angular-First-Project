@@ -24,6 +24,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTableModule} from "@angular/material/table"
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { BackButtonDirective } from './directives/back/backButton.directive';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
+    BackButtonDirective,
     
   ],
   bootstrap: [AppComponent],

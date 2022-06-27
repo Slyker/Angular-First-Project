@@ -15,10 +15,9 @@ import { CartProduct } from 'src/app/products';
   ]
 })
 export class CartComponent {
-  displayedColumns: string[] = ["name","price","quantity"];
   items = this.cartService.getItems();
   total = this.cartService.getTotal();
-  columnsToDisplay = ['name','price','quantity','total'];
+  columnsToDisplay = ['name','price','quantity', 'total'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: CartProduct | null = null;
 
