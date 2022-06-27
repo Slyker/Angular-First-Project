@@ -1,16 +1,27 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../cart.service';
-import {MatTableDataSource} from '@angular/material/table';
-
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { CartProduct } from 'src/app/products';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class CartComponent {
   displayedColumns: string[] = ["name","price","quantity"];
   items = this.cartService.getItems();
   total = this.cartService.getTotal();
+  columnsToDisplay = ['name','price','quantity','total'];
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement: CartProduct | null = null;
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {

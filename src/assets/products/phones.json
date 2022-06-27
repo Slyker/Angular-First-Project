@@ -5,27 +5,33 @@
       "price": 799,
       "description": "A large phone with one of the best screens",
       "stock": 150,
-      "promo":10
+      "promo":10,
+      "image":"https://images.frandroid.com/wp-content/uploads/2021/09/p1022463-scaled.jpg"
     },
     {
       "id": 2,
       "name": "Phone Mini",
       "price": 699,
       "description": "A great phone with one of the best cameras",
-      "stock": 50
+      "stock": 50,
+      "image":"https://images.frandroid.com/wp-content/uploads/2021/09/p1022463-scaled.jpg"
+
     },
     {
       "id": 3,
       "name": "Phone Standard",
       "price": 299,
       "description": "A basic phone don't know why buy this one",
-      "stock": 0
+      "stock": 0,
+      "image":"https://images.frandroid.com/wp-content/uploads/2021/09/p1022463-scaled.jpg"
+
     },
     {
       "id": 4,
       "name": "No named phone aka chinese bruh",
       "price": 500,
       "description": "A test phone something simple that works, but be aware of chinese's governement",
-      "stock": 1
+      "stock": 1,
+      "image":"https://images.frandroid.com/wp-content/uploads/2021/09/p1022463-scaled.jpg"
     }
   ]

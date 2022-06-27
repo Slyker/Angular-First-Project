@@ -7,6 +7,7 @@ export interface Product {
   lowStock?: number;
   promoPrice?:number;
   promo?: number;
+  image:string;
 }
 export interface CartProduct extends Product {
   quantity: number;
