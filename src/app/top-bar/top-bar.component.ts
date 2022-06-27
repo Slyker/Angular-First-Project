@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product, products } from '../products';
+import { Product } from '../products';
 import { CartService } from '../cart.service';
 @Component({
   selector: 'app-top-bar',
@@ -11,9 +11,9 @@ export class TopBarComponent {
   constructor(
     private cartService: CartService
   ) {}
-getCartLength(){
-  return this.cartService.getItems().length
-}
+  getCartLength(){
+    return this.cartService.getItems().length
+  }
 }
 
 

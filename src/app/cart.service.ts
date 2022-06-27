@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CartProduct, Product, products } from './products';
+import { CartProduct, Product } from './products';
 
 @Injectable({
   providedIn: 'root',
@@ -50,12 +50,6 @@ export class CartService {
   }
 
   getItems() {
-    if(this.items.length===-1){
-      let testToDELETE = products[products.length-1] as CartProduct
-      this.getProductTotals(testToDELETE);
-      this.items.push(testToDELETE)
-    }
-
     return this.items;
   }
 
