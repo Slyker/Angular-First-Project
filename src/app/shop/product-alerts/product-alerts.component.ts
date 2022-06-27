@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Product, CartProduct} from '../products';
-import { CartService } from '../cart.service';
+import { Product, CartProduct} from '../../products';
+import { CartService } from '../../cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-product-alerts',
