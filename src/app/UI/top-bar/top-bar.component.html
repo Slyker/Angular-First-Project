@@ -17,9 +17,18 @@
 
 <mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sidenav-sidenav-container ">
   <mat-sidenav [class.sidenav-menu-mobile]="mobileQuery.matches" class="sidenav-menu"  [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" #sidenav mode="over" [(opened)]="opened" >
+<<<<<<< Updated upstream
     <mat-nav-list class="centered" >
         <a mat-list-item class="sidenav-link" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
         <a mat-list-item  class="sidenav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+=======
+    <mat-nav-list >
+      <a *ngFor="let route of routes" mat-list-item class="sidenav-link" [routerLink]="[route.link]" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" >
+        <mat-icon *ngIf="route.icon" matListIcon>{{route.icon}}</mat-icon>
+        {{route.name}}
+      </a>
+       
+>>>>>>> Stashed changes
 
 
     </mat-nav-list>    

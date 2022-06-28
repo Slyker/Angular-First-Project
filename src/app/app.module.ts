@@ -35,7 +35,12 @@ import {MatListModule} from '@angular/material/list'
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+<<<<<<< Updated upstream
       { path: '', component: ProductListComponent },
+=======
+      { path: '', component: HomeComponent },
+      { path:"shop",component:ProductListComponent},
+>>>>>>> Stashed changes
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
