@@ -15,8 +15,11 @@
 </mat-toolbar>
 
 <mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sideNav-content">
-  <mat-sidenav  class="sideNav-menu" #sidenav mode="over" [(opened)]="opened">
+  <mat-sidenav  class="sideNav-menu" #sidenav mode="over" [(opened)]="opened" style="">
+    
     <a [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+    <br>
+    <a [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
   </mat-sidenav>
 
   <mat-sidenav-content >
