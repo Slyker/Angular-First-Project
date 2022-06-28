@@ -29,21 +29,20 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CloseSidenavDirective } from './directives/close-sidenav.directive'
 import {MatListModule} from '@angular/material/list'
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './UI/not-found/not-found.component';
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-<<<<<<< Updated upstream
-      { path: '', component: ProductListComponent },
-=======
       { path: '', component: HomeComponent },
       { path:"shop",component:ProductListComponent},
->>>>>>> Stashed changes
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
+      {path:"**",component:NotFoundComponent}
     ]),
     BrowserAnimationsModule,
     MatSliderModule,
@@ -72,6 +71,8 @@ import {MatListModule} from '@angular/material/list'
     ShippingComponent,
     BackButtonDirective,
     CloseSidenavDirective,
+    HomeComponent,
+    NotFoundComponent
     
   ],
   bootstrap: [AppComponent],
