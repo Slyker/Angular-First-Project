@@ -18,7 +18,7 @@
 <mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sidenav-sidenav-container ">
   <mat-sidenav [class.sidenav-menu-mobile]="mobileQuery.matches" class="sidenav-menu"  [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" #sidenav mode="over" [(opened)]="opened" >
     <mat-nav-list >
-      <a *ngFor="let route of routes" mat-list-item class="sidenav-link" [routerLink]="[route.link]" routerLinkActive="router-link-active" >
+      <a *ngFor="let route of routes" mat-list-item class="sidenav-link" [routerLink]="[route.link]" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" >
         <mat-icon *ngIf="route.icon" matListIcon>{{route.icon}}</mat-icon>
         {{route.name}}
       </a>

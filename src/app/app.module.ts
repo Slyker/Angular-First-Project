@@ -28,9 +28,9 @@ import { BackButtonDirective } from './directives/back/backButton.directive';
 import {MatSidenavModule} from '@angular/material/sidenav'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CloseSidenavDirective } from './directives/close-sidenav.directive'
-import {MatListModule} from '@angular/material/list';
-import { NotFoundComponent } from './UI/not-found/not-found.component'
+import {MatListModule} from '@angular/material/list'
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './UI/not-found/not-found.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -38,20 +38,12 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      {path:"/shop",component:ProductListComponent},
+      { path:"shop",component:ProductListComponent},
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
-      {path:"**", component:NotFoundComponent}
+      {path:"**",component:NotFoundComponent}
     ]),
-    /*RouterModule.forChild([
-      { path: '', component: HomeComponent },
-      {path:"/shop",component:ProductListComponent},
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent },
-      {path:"**", component:NotFoundComponent}
-    ]),*/
     BrowserAnimationsModule,
     MatSliderModule,
     MatToolbarModule,
@@ -79,8 +71,8 @@ import { HomeComponent } from './home/home.component';
     ShippingComponent,
     BackButtonDirective,
     CloseSidenavDirective,
-    NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
     
   ],
   bootstrap: [AppComponent],
