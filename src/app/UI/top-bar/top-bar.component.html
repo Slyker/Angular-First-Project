@@ -17,9 +17,11 @@
 
 <mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sidenav-sidenav-container ">
   <mat-sidenav [class.sidenav-menu-mobile]="mobileQuery.matches" class="sidenav-menu"  [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" #sidenav mode="over" [(opened)]="opened" >
-    <mat-nav-list style="justify-content: center;">
-      <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
-      <a mat-list-item [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+    <mat-nav-list class="centered" >
+        <a mat-list-item class="sidenav-link" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+        <a mat-list-item  class="sidenav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+
+
     </mat-nav-list>    
   </mat-sidenav>
 
