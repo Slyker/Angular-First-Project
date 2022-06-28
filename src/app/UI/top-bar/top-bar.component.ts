@@ -7,11 +7,19 @@ import { CartService } from '../../cart.service';
 })
 
 export class TopBarComponent {
+  isMobile = false;
+  ngOnInit(): void {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      this.isMobile = true;
+    }
+  }
   opened: boolean = false;
   constructor(private cartService: CartService) {}
   getCartLength(){
     return this.cartService.getItems().length
   }
+
+  
 }
 
 

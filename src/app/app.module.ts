@@ -26,7 +26,8 @@ import {MatTableModule} from "@angular/material/table"
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BackButtonDirective } from './directives/back/backButton.directive';
 import {MatSidenavModule} from '@angular/material/sidenav'
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CloseSidenavDirective } from './directives/close-sidenav.directive'
 @NgModule({
   imports: [
     BrowserModule,
@@ -63,6 +64,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox'
     CartComponent,
     ShippingComponent,
     BackButtonDirective,
+    CloseSidenavDirective,
     
   ],
   bootstrap: [AppComponent],
