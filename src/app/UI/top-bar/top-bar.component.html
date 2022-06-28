@@ -1,5 +1,6 @@
 
-<mat-toolbar  >
+<div class="sidenav-container" [class.sidenav-is-mobile]="mobileQuery.matches">
+<mat-toolbar  class="sidenav-toolbar" >
   <button   id="sideNavOpenMenubtn" style="margin-right: 10px;" mat-icon-button aria-label="Menu toogler" (click)="sidenav.toggle()">
     <mat-icon >menu</mat-icon>
   </button>
@@ -14,12 +15,12 @@
   </span>
 </mat-toolbar>
 
-<mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sideNav-content">
-  <mat-sidenav  class="sideNav-menu" #sidenav mode="over" [(opened)]="opened" style="">
-    
-    <a [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
-    <br>
-    <a [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+<mat-sidenav-container appCloseSidenav [sideNav]="sidenav" class="sidenav-sidenav-container ">
+  <mat-sidenav [class.sidenav-menu-mobile]="mobileQuery.matches" class="sidenav-menu"  [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" #sidenav mode="over" [(opened)]="opened" >
+    <mat-nav-list style="justify-content: center;">
+      <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+      <a mat-list-item [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+    </mat-nav-list>    
   </mat-sidenav>
 
   <mat-sidenav-content >
@@ -29,7 +30,7 @@
     
   </mat-sidenav-content>
 </mat-sidenav-container>
-
+</div>
 
 
 

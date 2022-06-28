@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import {  ChangeDetectorRef, Component, OnDestroy, Input } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { CartService } from '../../cart.service';
 @Component({
   selector: 'app-top-bar',
@@ -14,7 +15,17 @@ export class TopBarComponent {
     }
   }
   opened: boolean = false;
-  constructor(private cartService: CartService) {}
+  private _mobileQueryListener: () => void;
+  mobileQuery: MediaQueryList;
+  constructor(private cartService: CartService, private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
   getCartLength(){
     return this.cartService.getItems().length
   }

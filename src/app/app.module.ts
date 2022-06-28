@@ -28,6 +28,7 @@ import { BackButtonDirective } from './directives/back/backButton.directive';
 import {MatSidenavModule} from '@angular/material/sidenav'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CloseSidenavDirective } from './directives/close-sidenav.directive'
+import {MatListModule} from '@angular/material/list'
 @NgModule({
   imports: [
     BrowserModule,
@@ -51,7 +52,8 @@ import { CloseSidenavDirective } from './directives/close-sidenav.directive'
     MatTableModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
     
 
   ],
