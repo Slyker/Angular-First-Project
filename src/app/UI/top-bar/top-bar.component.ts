@@ -1,6 +1,7 @@
 import {  ChangeDetectorRef, Component, OnDestroy, Input } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { CartService } from '../../cart.service';
+import {Route} from './routes'
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -8,6 +9,7 @@ import { CartService } from '../../cart.service';
 })
 
 export class TopBarComponent {
+  routes:Route[] = [{link:"/",name:"Home",icon:"home"},{link:"/shop",name:"Shop",icon:"shopping_cart"}]
   isMobile = false;
   ngOnInit(): void {
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
